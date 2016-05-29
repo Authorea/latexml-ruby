@@ -1,6 +1,6 @@
 # LaTeXML-Ruby
 
-[![Build Status](https://secure.travis-ci.org/authorea/LaTeXML-Ruby.png?branch=master)](http://travis-ci.org/authorea/LaTeXML-Ruby)
+[![Build Status](https://secure.travis-ci.org/Authorea/latexml-ruby.png?branch=master)](https://travis-ci.org/Authorea/latexml-ruby)
 [![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/authorea/LaTeXML-Ruby/master/LICENSE)
 
 

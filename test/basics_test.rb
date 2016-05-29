@@ -2,7 +2,20 @@ require 'helper'
 
 class TestWrapperBasics < Minitest::Test
   def setup
-    @latexml = LaTeXML.new
+    @latexml = LaTeXML.new(latexml_timeout: 2, setup: [
+      {expire: 5},
+      {autoflush: 1},
+      {cache_key: 'latexml_ruby_test'},
+      {timeout: 1},
+      {nocomments: true},
+      {nographicimages: true},
+      {nopictureimages: true},
+      {noparse: true}, # Don't parse the math, using MathJaX for now
+      {format: 'html5'},
+      {nodefaultresources: true}, # Don't copy any aux files over
+      {whatsin: 'fragment'},
+      {whatsout: 'fragment'},
+    ])
   end
 
 
@@ -33,6 +46,6 @@ class TestWrapperBasics < Minitest::Test
 EXPECTED
     expected_xml.chomp! # no EOL at the end in response
 
-    assert_equal expected_xml, response[:result]
+    assert_equal expected_xml, response[:result], response.inspect
   end
 end

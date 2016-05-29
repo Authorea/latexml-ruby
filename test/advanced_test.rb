@@ -25,15 +25,15 @@ class TestWrapperAdvanced < Minitest::Test
     # Timeout fatal message should be present
     fatal_message = response[:messages].select{|m| m[:severity] == 'fatal'}.first
     assert fatal_message
-    assert_equal "timeout", fatal_message[:category]
+    assert_equal "timeout", fatal_message[:category], fatal_message.inspect
 
     # Overall conversion status should be fatal(3)
     status_message = response[:messages].select{|m| m[:severity] == 'status'}.first
     assert status_message
-    assert_equal "3", status_message[:what]
+    assert_equal "3", status_message[:what], status_message.inspect
 
     # And the response should be empty
-    assert response[:result].to_s.strip.empty?
+    assert response[:result].to_s.strip.empty?, response.inspect
   end
 
   def test_consequtive_restarts_dont_drop_jobs

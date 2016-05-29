@@ -97,7 +97,7 @@ class LaTeXML
     time_before_call = Time.now
     # We are talking to socket servers, via the LaTeXML-Plugin-latexmls extension:
     server_port = options[:server_port] || 3334
-    server_address = options[:server_address] || "localhost"
+    server_address = options[:server_address] || "0.0.0.0"
     # We can only proceed if we have a working socket server
     if !ensure_latexmls(server_port)
       return @response_server_unreachable.deep_dup

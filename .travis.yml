@@ -9,10 +9,13 @@ addons:
      - libxml2-dev
      - libxslt1-dev
      - libgdbm-dev
-     - cpanminus
-     - latexml
 before_install:
   - gem install bundler -v 1.12.5
-  - cpanm App::cpanminus
-  - cpanm ExtUtils::MakeMaker
-  - cpanm git://github.com/dginev/LaTeXML-Plugin-latexmls.git
+  # Thanks to SO: http://stackoverflow.com/a/32358866
+  # Install modules into ~/perl5 using system perl
+  - curl -L https://cpanmin.us | perl - App::cpanminus
+  - export PATH=$PATH:~/perl5/bin/
+  - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+  - cpanm JSON
+  - cpanm --notest https://github.com/brucemiller/LaTeXML.git
+  - cpanm https://github.com/dginev/LaTeXML-Plugin-latexmls.git
