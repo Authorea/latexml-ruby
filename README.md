@@ -33,6 +33,8 @@ Or install it yourself as:
 A hello world conversion job looks like:
 
 ```ruby
+require 'latexml'
+
 @latexml = LaTeXML.new
 
 response = @latexml.convert(literal: "hello world")
