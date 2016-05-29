@@ -1,0 +1,19 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.2.4
+addons:
+  apt:
+    packages:
+     - libdb-dev
+     - libxml2-dev
+     - libxslt1-dev
+     - libgdbm-dev
+     - cpanminus
+
+before_install:
+  - gem install bundler -v 1.12.5
+  - cpanm App::cpanminus
+  - cpanm ExtUtils::MakeMaker
+  - cpanm LaTeXML
+  - cpanm git://github.com/dginev/LaTeXML-Plugin-latexmls.git
