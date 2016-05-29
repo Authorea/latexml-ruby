@@ -14,12 +14,12 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'escape_utils'
-  spec.add_dependency 'json'
+  spec.add_dependency 'escape_utils', '~> 1.2'
+  spec.add_dependency 'json', '~> 1.8'
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "minitest-reporters"
+  spec.add_development_dependency "minitest-reporters", "~> 1.1"
 
 end
