@@ -8,6 +8,10 @@ A Ruby wrapper for the [LaTeXML](http://dlmf.nist.gov/LaTeXML/) LaTeX to XML/HTM
 
 Includes support for daemonized conversion runs, for additional performance, via the [latexmls](https://github.com/dginev/LaTeXML-Plugin-latexmls) socket server.
 
+## Why LaTeXML?
+
+You may be familiar with other LaTeX conversion tools such as Pandoc or tex4ht. LaTeXML attempts to be a complete TeX interpreter, and covers a vastly larger range of the TeX/LaTeX ecosystem than Pandoc. At the same time it allows for just-in-time binding of structural and semantic macros, which allows it to create higher quality HTML5 than tex4ht, and makes bridging the impedance mismatch between PDF and HTML an achievable goal.
+
 ## Installation
 
 Add this line to your application's Gemfile:
