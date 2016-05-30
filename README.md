@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/Authorea/latexml-ruby.png?branch=master)](https://travis-ci.org/Authorea/latexml-ruby)
 [![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/authorea/LaTeXML-Ruby/master/LICENSE)
-
+[![Gem Version](https://badge.fury.io/rb/latexml-ruby.svg)](https://badge.fury.io/rb/latexml-ruby)
 
 A Ruby wrapper for the [LaTeXML](http://dlmf.nist.gov/LaTeXML/) LaTeX to XML/HTML/ePub converter.
 
