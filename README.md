@@ -30,6 +30,10 @@ Or install it yourself as:
 
     $ gem install latexml-ruby
 
+### Caveat
+
+The current default setup of the wrapper options uses some advanced LaTeX packages, for which you also need a working LaTeX installation on the machine, as LaTeXML resorts to the native LaTeX definitions. It's usually best to install ```texlive```, or a similar comprehensive TeX distro. For a minimal setup set of options, see the [basic test setup](https://github.com/Authorea/latexml-ruby/blob/master/test/basics_test.rb#L5)
+
 ## Usage
 
 A hello world conversion job looks like:
