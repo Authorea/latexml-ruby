@@ -49,7 +49,8 @@ EXPECTED
 
     (1..10).each do
       response = @latexml.convert(literal: job)
-      assert_equal expected_xml, response[:result]
+      assert_equal 0, response[:status_code], response.inspect
+      assert_equal expected_xml, response[:result], response.inspect
     end
   end
 end

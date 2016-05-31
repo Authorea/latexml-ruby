@@ -45,7 +45,7 @@ class TestWrapperBasics < Minitest::Test
 </article>
 EXPECTED
     expected_xml.chomp! # no EOL at the end in response
-
+    assert_equal 0, response[:status_code], response.inspect
     assert_equal expected_xml, response[:result], response.inspect
   end
 end

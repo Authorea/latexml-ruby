@@ -47,8 +47,11 @@ response = @latexml.convert(literal: "hello world")
 
 result = response[:result]
 messages = response[:messages]
+status_code = response[:status_code]
 
 ```
+
+You can find more information on the LaTeXML message codes in [the official manual](http://dlmf.nist.gov/LaTeXML/manual/errorcodes/index.html).Status codes range from 0 (OK), 1 (warning), 2 (error) to 3 (fatal error).
 
 ## Contributing
 

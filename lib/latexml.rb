@@ -164,11 +164,13 @@ class LaTeXML
       # email_content = "#{request.body}\n\nLog: #{log}"
       # Resque.enqueue(NotificationsWorker, email_subject, email_content)
     # end
+
     # We can check for the error code if we want to: 0 is ok, 1 is warning, 2 is error and 3 is fatal error
-    # status = response["status"]
+    status = response["status"]
+    status_code = response["status_code"] || 3 # when undefined, implied Fatal, it should always be returned
 
     # Return the HTML content:
-    return {result: html, messages: parse_log(log)}
+    return {result: html, messages: parse_log(log), status: status, status_code: status_code}
   end
 
   # Parses a log string which follows the LaTeXML convention
