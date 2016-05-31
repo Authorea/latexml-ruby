@@ -1,7 +1,7 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "latexml-ruby"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
 
   spec.authors       = ["Deyan Ginev"]
   spec.email         = ["deyan@authorea.com"]
