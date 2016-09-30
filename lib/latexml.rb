@@ -1,3 +1,4 @@
+# coding: utf-8
 class LaTeXML
   require 'socket'
   require 'timeout'
@@ -119,6 +120,7 @@ class LaTeXML
         # we are going to retry on failure, as this is likely an autoflush process reboot (expected behaviour)
         loop do
           begin
+            puts "request.body : #{request.body}"
             http_response = http.request(request)
             break
           rescue => e
@@ -153,6 +155,7 @@ class LaTeXML
       # Resque.enqueue(NotificationsWorker, email_subject, email_content)
     end
 
+    puts "About to parse: #{http_response.body}"
     response = JSON.parse(http_response.body)
 
     html = response["result"] || ""
