@@ -16,6 +16,8 @@ We use LaTeXML extensively at Authorea (http://www.authorea.com) for enabling [P
 
 ## Installation
 
+Install the stand-alone LaTeXML application using [your preferred method](dlmf.nist.gov/LaTeXML/get.html)
+
 Add this line to your application's Gemfile:
 
 ```ruby

@@ -234,6 +234,9 @@ class LaTeXML
   end
 
   def ensure_latexmls(server_port = 3334)
+    if !self.class.is_installed?
+      raise SystemCallError, self.class.not_installed_message
+    end
     Timeout::timeout(@preload_timeout) do # we'll try for X seconds before giving up
       loop do
         if local_port_open?(server_port)
@@ -247,7 +250,7 @@ class LaTeXML
               (v==true) ? ["--#{k}"] : ["--#{k}", v.to_s]
             end
           end.flatten
-          system(LaTeXML.executable,"--port",server_port.to_s, *sys_options)
+          system(self.class.executable,"--port",server_port.to_s, *sys_options)
         end
       end
       return true
@@ -256,8 +259,11 @@ class LaTeXML
     return false
   end
 
+  def self.not_installed_message
+    "LaTeXML executables are not found, please ensure a correct installation of the LaTeXML suite before using this wrapper."
+  end
   def self.is_installed?
-    self.executable
+    ! self.executable.nil?
   end
 
   def self.executable

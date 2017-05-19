@@ -18,9 +18,26 @@ class TestWrapperBasics < Minitest::Test
     ])
   end
 
-
   def test_installation_is_present # can't use without an external installation
     assert LaTeXML.is_installed?
+  end
+
+  def test_graceful_error_when_installation_missing
+    @latexml.class.instance_eval do
+      alias old_executable executable
+      def executable
+        nil
+      end
+    end
+
+    err = assert_raises(SystemCallError) do
+      puts "\n\n\n\n\n", @latexml.convert(literal: 'hello world')
+    end
+    assert err.message.match(LaTeXML.not_installed_message()), 'Error message to alert LaTeXML should be installed'
+
+    @latexml.class.instance_eval do
+      alias executable old_executable
+    end
   end
 
   def test_which_executable_available
